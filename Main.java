@@ -12,21 +12,27 @@ public class Main {
         double[] values1 = parseInput(input1);
         double[] values2 = parseInput(input2);
 
-        if (Equivalence.run(values1, values2)) {
+        Multiset x1 = new Multiset(values1);
+        Multiset x2 = new Multiset(values2);
+
+        if (x1.equals(x2)) {
             System.out.println("x1 and x2 are equivalent.");
         } else {
             System.out.println("x1 and x2 are not equivalent.");
         }
+
+        System.out.println("x1: " + x1);
+        System.out.println("x2: " + x2);
     }
 
     private static double[] parseInput(String input) {
         String[] parts = input.split(",");
-        if (parts.length != 2) {
-            throw new IllegalArgumentException("The input must contain exactly two numbers separated by a comma.");
+        double[] values = new double[parts.length];
+
+        for (int i = 0; i < parts.length; i++) {
+            values[i] = Double.parseDouble(parts[i].trim());
         }
-        double[] values = new double[2];
-        values[0] = Double.parseDouble(parts[0].trim());
-        values[1] = Double.parseDouble(parts[1].trim());
+
         return values;
     }
 
