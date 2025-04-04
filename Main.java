@@ -21,6 +21,8 @@ public class Main {
             System.out.println("x1 and x2 are not equivalent.");
         }
 
+        x1.makeSame(x2);
+
         System.out.println("x1: " + x1);
         System.out.println("x2: " + x2);
     }

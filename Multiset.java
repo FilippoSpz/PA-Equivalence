@@ -42,4 +42,23 @@ public class Multiset {
         result.append('}');
         return result.toString();
     }
+
+    public void makeSame(Multiset x) {
+        if (!this.equals(x)) {
+            double[] combinedValues = new double[this.values.length + x.values.length];
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+            System.arraycopy(this.values, 0, combinedValues, 0, this.values.length);
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+            System.arraycopy(x.values, 0, combinedValues, this.values.length, x.values.length);
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+            Arrays.sort(combinedValues);
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+            int mid = combinedValues.length / 2;
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+            System.arraycopy(combinedValues, 0, this.values, 0, mid);
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+            System.arraycopy(combinedValues, mid, x.values, 0, combinedValues.length - mid);
+            System.out.println("Combined values: " + Arrays.toString(combinedValues));
+        }
+    }
 }
